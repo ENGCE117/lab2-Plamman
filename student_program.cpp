@@ -1,41 +1,34 @@
 #include <stdio.h>
 
-void GetMatrix( int **value, int *row, int *col ) ;
-void PrintMatrix( int **value, int row, int col ) ;
+char* reverse( char str1[]) ;
 
 int main() {
-    int *data, m = 2, n = 3 ;
-    data = new int[ m * n ] ; 
-
-    GetMatrix( &data, &m, &n ) ;
-    PrintMatrix( &data, m, n ) ;
-
-    return 0 ;
-
+    char text[ 50 ] ;
+    char *output ;
+    output = reverse( text ) ;
+    printf( "MAIN : %s\n", output ) ;
 }//end function
-
-void GetMatrix( int **value, int *row, int *col ) {
  
- printf ("Enter the elements of the matrix (%d x %d):\n" , *row , *col ) ;
+char* reverse( char str1[]) {
 
- for ( int i=0 ; i < *row ; i++ ) {
-    for ( int j=0 ; j < *col ; j++ ) {
-      printf("Element at [%d][%d]: ", i, j) ;  
-      scanf ( "%d", &value[i * (*col) + j] ) ;
+int i ;
+int channel = 0 ;
+char temp ;
 
-    }
-  }
+printf( "Enter a string: ") ;
+gets(  str1 ) ;
+
+while ( str1[channel] != '\0'){
+    channel++ ;
 }
+  
+ for( i = 0 ; i < channel / 2 ; i++ ) {
+    temp = str1[i] ;
+    str1[i] = str1[channel - i - 1] ;
+    str1[channel - i - 1] = temp ;
 
-void PrintMatrix( int **value, int row, int col ) {
-
- printf( "Matrix (%dx%d):\n" , row , col ) ;
- 
- for ( int i=0 ; i < row ; i++ ) {
-   for ( int j=0 ; j < col ; j++ ) {
-     printf ( "%d " , value[i * col + j] ) ;  
-
-   }
-   printf("\n");
  }
+ printf( "FUNC : %s\n", str1 ) ;
+
+ return str1 ;
 }
