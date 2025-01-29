@@ -16,7 +16,7 @@ int channel = 0 ;
 char temp ;
 
 printf( "Enter a string: ") ;
-gets(  str1 ) ;
+scanf("%[^\n]", str1) ;
 
 while ( str1[channel] != '\0'){
     channel++ ;
